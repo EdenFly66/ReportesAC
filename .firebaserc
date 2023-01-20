@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "reportes-b7624": {
+      "hosting": {
+        "reportes": [
+          "reportes-b7624"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "reportes-b7624"
+  }
+}

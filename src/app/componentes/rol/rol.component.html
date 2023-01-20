@@ -1,0 +1,24 @@
+<div class="row" style="background-color:  #9cbfd6">
+    <h1 style="text-align:center;">Usuarios</h1>
+    <hr>
+    <div class="x" *ngFor="let x of this.usuarios">
+        <div class="info">
+            <h2>{{x.nombre}}</h2>
+            <p>Correo: {{x.correo}}</p>
+            <p>Rol actual: {{x.rol}}</p>
+            
+        </div>
+    </div>
+</div>
+
+<form (ngSubmit)="editarRol()" [formGroup]="formulario">
+    <select name="usuario" class="form-control" id="usuario" name="usuario" formControlName="usuario">
+        <option selected>Empleado:</option>
+        <option *ngFor="let z of this.usuarios">{{z.nombre}}</option>
+    </select>
+    <select name="rol" class="form-control" id="rol" name="rol" formControlName="rol">
+        <option selected>Rol:</option>
+        <option *ngFor="let y of this.roles">{{y}}</option>
+    </select>
+    <button type="submit">Editar</button>
+</form>

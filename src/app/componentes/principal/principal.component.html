@@ -1,0 +1,16 @@
+<h1>Bienvenido {{this.nombreUsuario}}</h1>
+
+<hr>
+
+<div *ngIf="rol==='Admin'">
+    <button (click)="redirigir()">Crear cuenta</button>
+    <hr>
+    <button (click)="cambiarRol()">Cambiar rol</button>
+    <hr> 
+</div>
+
+<button (click)="cerrarSesion()">Salir</button>
+<hr>
+
+<h1>Agregar Excel</h1>
+<input type="file">

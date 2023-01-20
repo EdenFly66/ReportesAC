@@ -1,0 +1,42 @@
+<div id="contenedor">
+    <div id="central">
+      <div id="login">
+        <form (ngSubmit)="recuperar()" [formGroup]="formulario">
+            <div class="titulo">
+              <h3 style="text-align: center;">Recuperación.</h3>
+              <hr>
+            </div>
+            <div class="mb-4">
+                <label for="correo" class="form-label">Correo electrónico:</label>
+                <input
+                type="email"
+                class="form-control"
+                id="correo"
+                name="correo"
+                formControlName="correo"
+                />
+            </div>
+  
+            <div
+            *ngIf="formulario.get('correo')?.touched && formulario.get('correo')?.errors?.['required']"
+            style="background-color:#7e7c11; color: rgba(255, 255, 255, 0.85);text-align: center;"
+          >
+            Este campo es obligatorio.
+          </div>
+  
+          <div
+            *ngIf="formulario.get('correo')?.touched && formulario.get('correo')?.errors?.['email']"
+            style="background-color:#7e7c11; color: rgba(255, 255, 255, 0.85);text-align: center;"
+          >
+            Debe ser un correo válido.
+          </div>
+          <hr>
+          <div class="pie-form">
+            <button  type="submit" class="btn">Enviar correo</button>
+           <hr>
+            <a href="">Ya me acordé</a>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
