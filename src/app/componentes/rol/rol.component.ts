@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { collection, Firestore, getDocs, query, where } from '@angular/fire/firestore';
 import { FormBuilder } from '@angular/forms';
-import { orderBy, setDoc } from 'firebase/firestore';
+import { doc, orderBy, setDoc } from 'firebase/firestore';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -24,7 +24,6 @@ export class RolComponent {
 
   ngOnInit(){
     this.obtenerUsuarios()
-    console.log(this.usuarios)
   }
 
   async obtenerUsuarios(){
@@ -36,22 +35,26 @@ export class RolComponent {
       this.usuarios.push(datos)
     })
   }
-  editarRol(){
+  
+  async editarRol(){
     if(this.formulario.value.rol=="" || this.formulario.value.rol=="Rol:" || this.formulario.value.usuario==""  || this.formulario.value.usuario=="Empleado:"){
       console.log('tirar alerta')
     }
     else{
-      console.log('funciono')
       let usuarioToUpdate!:Usuario;
       for(let i = 0; i< this.usuarios.length ; i++){
         if(this.usuarios[i].nombre==this.formulario.value.usuario){
           usuarioToUpdate = this.usuarios[i]
         }
       }
-      this.usuarioService.borrarUsuario(usuarioToUpdate)
-      usuarioToUpdate.rol = this.formulario.value.rol
-      this.usuarioService.guardarUsuario2(usuarioToUpdate.UID,usuarioToUpdate.rol,usuarioToUpdate.correo,usuarioToUpdate.nombre)
-      console.log(usuarioToUpdate)
+      const ref = collection(this.firestore,'Usuarios');
+      return setDoc(doc(ref,usuarioToUpdate.UID),{
+        "UID":usuarioToUpdate.UID,
+        "rol":this.formulario.value.rol,
+        "correo":usuarioToUpdate.correo,
+        "nombre":usuarioToUpdate.nombre,
+      })
+      
     }
     
   }

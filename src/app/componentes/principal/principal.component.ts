@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { query, collection, getDocs, where, setDoc } from 'firebase/firestore';
+import { query, collection, getDocs, where, setDoc, doc, getDoc } from 'firebase/firestore';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -25,15 +25,12 @@ export class PrincipalComponent {
   }
 
   async obtenerData(){
-    const id = await this.usuarioService.getUid()
-    const q = query(collection(this.firestore,'Usuarios'),where("UID","==",id));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach(e => {
-      const datos = e.data() as Usuario
-      this.nombreUsuario = datos.nombre
-      this.rol = datos.rol
-    })
-
+    const id:string = await this.usuarioService.getUid() as unknown as string;
+    const docRef = doc(this.firestore,"Usuarios",id);
+    const docSnap = await getDoc(docRef);
+    const data:Usuario = docSnap.data() as unknown as Usuario;
+    this.rol = data.rol
+    this.nombreUsuario = data.nombre
   }
 
   cerrarSesion(){

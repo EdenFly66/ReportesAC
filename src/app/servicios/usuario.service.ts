@@ -7,7 +7,7 @@ import { addDoc, collection, Firestore, getDocs, query } from '@angular/fire/fir
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { async } from 'rxjs';
-import { deleteDoc, doc, where } from 'firebase/firestore';
+import { deleteDoc, doc, setDoc, where } from 'firebase/firestore';
 import { Usuario } from '../interfaces/usuario';
 
 @Injectable({
@@ -65,13 +65,7 @@ export class UsuarioService {
   }
 
   async guardarUsuario(correo:string,rol:string,nombre:string){
-    const id = await this.getUid();
-    const obj = Object.assign({
-        "UID":id,
-        "rol":rol,
-        "correo":correo,
-        "nombre":nombre,
-      })
+    const id:string = await this.getUid() as unknown as string;
     const ref = collection(this.firestore,'Usuarios');
     Swal.fire({
       title: '¡Registrado!',
@@ -79,7 +73,13 @@ export class UsuarioService {
       icon: 'success',
       allowOutsideClick: false,
     })
-    return addDoc(ref,obj);
+
+    return setDoc(doc(ref,id),{
+      "UID":id,
+      "rol":rol,
+      "correo":correo,
+      "nombre":nombre,
+    })
   }
   
   recuperarContrasena(email:any){
@@ -97,24 +97,7 @@ export class UsuarioService {
   }
 
   borrarUsuario(usuario:Usuario){
-    const ref = doc(this.firestore, `Usuarios/${usuario.id}`)
-    return deleteDoc(ref)
+    
   }
 
-  async guardarUsuario2(id:string,rol:string,correo:string,nombre:string){
-    const obj = Object.assign({
-        "UID":id,
-        "rol":rol,
-        "correo":correo,
-        "nombre":nombre,
-      })
-    const ref = collection(this.firestore,'Usuarios');
-    Swal.fire({
-      title: 'Actualizado!',
-      text: 'Se ha asignado el nuevo rol a {{nombre}}.',
-      icon: 'success',
-      allowOutsideClick: false,
-    })
-    return addDoc(ref,obj);
-  }
 }
