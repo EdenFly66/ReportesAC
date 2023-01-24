@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
-import * as XLSX from 'xlsx';
+//import * as XLSX from 'xlsx';
 
 
 
@@ -26,7 +26,7 @@ export class PrincipalComponent {
     this.show = false;
   }
 
-  readExcel(event:any){
+  /*readExcel(event:any){
     let file = event.target.files[0];
     let fileReader = new FileReader();
     fileReader.readAsBinaryString(file);
@@ -38,7 +38,7 @@ export class PrincipalComponent {
     }
     
     
-  }
+  }*/
 
   procesoProductivo(cell:string,index:number){
     
