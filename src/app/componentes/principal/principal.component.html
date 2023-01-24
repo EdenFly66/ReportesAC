@@ -8,6 +8,8 @@
 <table class="table table-striped">
     <tbody>
         <tr *ngFor="let x of excelData; let i = index;">
+            <div *ngIf="i==0"></div>
+            <button *ngIf="i>0" (click)="generarReporte(x)">Generar reporte</button>
             
             <td *ngFor="let cell of x;">
                 <div *ngIf = "!procesoProductivo(cell,i)">
@@ -18,4 +20,4 @@
         </tr>
     </tbody>
 </table>
-<button *ngIf="this.show"(click)="generarReportes()">Generar Reportes</button>
+<button *ngIf="this.show" (click)="generarTodosReportes()">Generar Reportes</button>
