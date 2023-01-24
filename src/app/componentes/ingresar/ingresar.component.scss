@@ -17,7 +17,7 @@
 
 .titulo {
     font-size: 150%;
-    color:#1f4624;
+    color:#85b3af;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -25,7 +25,7 @@
 #login {
     width: 100%;
     padding: 50px 30px;
-    background-color: rgba(98, 184, 77, 0.85);
+    background-color: rgba(67, 73, 148, 0.85);
     
     -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
@@ -41,7 +41,7 @@
 #login input {
     font-family: 'Overpass', sans-serif;
     font-size: 110%;
-    color: #282b0a;
+    color: #141414;
     
     display: block;
     width: 100%;
@@ -60,13 +60,13 @@
 
 #login input::placeholder {
     font-family: 'Overpass', sans-serif;
-    color: #E4E4E4;
+    color: #526bda;
 }
 
 #login button {
     font-family: 'Overpass', sans-serif;
     font-size: 110%;
-    color:#789c83;
+    color:#edebf0;
     width: 100%;
     height: 40px;
     border: none;
@@ -75,13 +75,13 @@
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
     
-    background-color: #0d3f0b;
+    background-color: #0c0b3f;
     
     margin-top: 10px;
 }
 
 #login button:hover {
-    background-color: #2ba731;
+    background-color: #68a1c7;
     color:#202920;
 }
 

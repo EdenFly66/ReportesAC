@@ -1,16 +1,21 @@
-<h1>Bienvenido {{this.nombreUsuario}}</h1>
+<app-cabecera></app-cabecera>
 
+<br><br>
+
+<h1 style="text-align: center;">Agregar Excel</h1>
+<input type="file" (change)="readExcel($event)">
 <hr>
-
-<div *ngIf="rol==='Admin'">
-    <button (click)="redirigir()">Crear cuenta</button>
-    <hr>
-    <button (click)="cambiarRol()">Cambiar rol</button>
-    <hr> 
-</div>
-
-<button (click)="cerrarSesion()">Salir</button>
-<hr>
-
-<h1>Agregar Excel</h1>
-<input type="file">
+<table class="table table-striped">
+    <tbody>
+        <tr *ngFor="let x of excelData; let i = index;">
+            
+            <td *ngFor="let cell of x;">
+                <div *ngIf = "!procesoProductivo(cell,i)">
+                   {{cell}} 
+                </div>
+                <!--INSERTAR DIV CON NGIF PARA LOS SELECTS-->
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button *ngIf="this.show"(click)="generarReportes()">Generar Reportes</button>

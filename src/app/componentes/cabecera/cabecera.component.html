@@ -1,0 +1,16 @@
+<div class="container-fluid">
+
+    <div class="saludo">
+        <h1>Bienvenido {{this.nombreUsuario}}</h1>
+    </div>
+    
+
+    <div class="navbuttons">
+        <div *ngIf="rol==='Admin'">
+            <button class="button" (click)="redirigir()">Crear cuenta</button>
+            <button class="button" (click)="cambiarRol()">Cambiar rol</button>
+            <hr>
+        </div>
+        <button class="button" (click)="cerrarSesion()">Salir</button>
+    </div>
+</div>

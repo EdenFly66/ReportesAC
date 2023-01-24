@@ -17,6 +17,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RolComponent } from './componentes/rol/rol.component';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
 const appRoutes:Routes=[
   {path:'',component:IngresarComponent},
@@ -33,7 +34,8 @@ const appRoutes:Routes=[
     PrincipalComponent,
     RegistrarComponent,
     RecuperarComponent,
-    RolComponent
+    RolComponent,
+    CabeceraComponent
   ],
   imports: [
     FormsModule,

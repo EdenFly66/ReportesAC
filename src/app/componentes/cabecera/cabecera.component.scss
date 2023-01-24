@@ -1,0 +1,38 @@
+.container-fluid{
+    height:120px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    background-color: #4a8aa3;
+    margin: 0;
+    padding-right: 50px;
+    .saludo{
+        align-items: center;
+        justify-content: left;
+        text-decoration: none;
+        align-self: center;
+        display: flex;
+        color: black;
+        height: 120px;
+        padding: 10px;
+        color:#000000;
+           
+    }
+    
+    .navbuttons{
+        align-self: center;
+        color: black;
+        margin: 20px;
+  
+        .button{
+          background-color: rgb(108, 201, 201);
+          margin:3px;
+          border-radius: 3px;
+        }
+  
+        .button:hover{
+          background-color: rgb(54, 77, 77);
+          color:white
+        }
+    }
+  }
