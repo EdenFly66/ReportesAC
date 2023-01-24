@@ -3,8 +3,6 @@ import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import * as XLSX from 'xlsx';
-import { jsPDF } from "jspdf";
-import html2canvas from 'html2canvas';
 
 
 
