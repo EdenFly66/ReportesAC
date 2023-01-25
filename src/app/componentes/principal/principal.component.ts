@@ -46,9 +46,9 @@ export class PrincipalComponent {
   }
   
   generarReporte(fila:Array<any>){
-    const doc = new jsPDF();
+    let doc = new jsPDF();
 
-    doc.text('hola'+fila[3], 10, 10);
+    doc.text('hola'+fila[3], 10, 10); //cambiar x, y   agregar opcional para formatos
     doc.save(fila[3]+fila[0]+".pdf");
   }
 
