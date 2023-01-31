@@ -12,10 +12,7 @@
             <button *ngIf="i>0" (click)="generarReporte(x)">Generar reporte</button>
             
             <td *ngFor="let cell of x;">
-                <div *ngIf = "!procesoProductivo(cell,i)">
-                   {{cell}} 
-                </div>
-                <!--INSERTAR DIV CON NGIF PARA LOS SELECTS-->
+                   {{cell}}
             </td>
         </tr>
     </tbody>

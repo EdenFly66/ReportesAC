@@ -41,11 +41,6 @@ export class PrincipalComponent {
     }
     
   }
-
-  procesoProductivo(cell:string,index:number){
-    
-    return false
-  }
   
   generarReporte(fila:Array<any>){
     this.generarListaClientes()
@@ -145,6 +140,22 @@ export class PrincipalComponent {
     doc.text('Estimado (a) cliente:',35,105 )
     doc.text(fila[3]+'Junto con saludarle muy cordialmente nos dirigimos a Usted para informarle de la situación tributaria desde el 01 de enero al 30 de noviembre de 2022 de su empresa:',35,115,{align: 'justify',lineHeightFactor: 1.5,maxWidth:140})
 
+    doc.setFont('calibri','bold')
+    doc.text(fila[4],35,125)
+
+    doc.setFont('calibri','roman')
+    doc.text('RUT:',35,130)
+
+    doc.setFont('calibri','bold')
+    doc.text(fila[1],45,130)
+
+    doc.setFont('calibri','roman')
+    doc.text("Según la información proporcionada y recolectada desde la base del SII el Resultado Financiero es aproximadamente de 00, lo que implica que su empresa tendrá que pagar en abril de 2023 un Impuesto de primera categoría de 00.\nAdemás su empresa ha pagado 00 por concepto de PPMs (ahorro a su favor para el pago de impuesto a la renta) lo que se abona al impuesto de primera categoría dando por resultado  de \nFinalmente le informamos que los socios de su empresa tienen derecho a un crédito (devolución) de acuerdo a sus retiros, con tope hasta el monto del impuesto pagado por su empresa, en este caso de 00 a distribuir entre todos los socios.\n\n\nDebe tener en cuenta que los gastos realizados el 2022 y pagados el 2023 no serán considerados como gastos. Además si su empresa realiza compras a crédito siempre debe adjuntarle a la factura el respectivo comprobante de pago y todas las compras pagadas al contado deben estar acreditadas en la factura, en modalidad de pago “Contado”.",35,140,{align: 'justify',lineHeightFactor: 1.5,maxWidth:140})
+    doc.text("Le saluda muy atentamente:",35,180)
+    doc.line(65,233,150,233);
+    doc.setFontSize(7)
+    doc.text("Equipo de Rentas",105,240)
+    doc.text("Auditoria Contable SpA",95,245)
     doc.save("AC-Informativo Previo Renta "+fila[4]+".pdf");
   }
 
