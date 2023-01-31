@@ -154,7 +154,7 @@ export class PrincipalComponent {
     doc.text("Le saluda muy atentamente:",35,180)
     doc.line(65,233,150,233);
     doc.setFontSize(7)
-    doc.text("Equipo de Rentas",105,240)
+    doc.text("Equipo de Rentas",98,240)
     doc.text("Auditoria Contable SpA",95,245)
     doc.save("AC-Informativo Previo Renta "+fila[4]+".pdf");
   }
